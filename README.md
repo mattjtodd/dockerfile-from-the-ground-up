@@ -27,3 +27,18 @@ You can use Docker and Alpine to get this!
 ```
 docker run -v $PWD:/certs alpine /bin/sh -c 'apk --update upgrade && apk add curl ca-certificates && update-ca-certificates && cp /etc/ssl/certs/ca-certificates.crt /certs'
 ```
+
+Examine the size of the resultant image by:
+
+```
+docker history golang-test-service
+```
+
+It's pretty small!  My output gave me
+
+```
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+4035db88817b        3 hours ago         /bin/sh -c #(nop)  CMD ["/main"]                0 B
+9188fd0cc20d        3 hours ago         /bin/sh -c #(nop) %s %s in %s  ADD file:4c976   7.636 MB
+edf5ead17421        3 hours ago         /bin/sh -c #(nop) %s %s in %s  ADD file:c6245   274.3 kB
+```
