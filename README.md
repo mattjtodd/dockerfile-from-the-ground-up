@@ -19,3 +19,11 @@ And run it using:
 ```
 docker run golang-test-service
 ```
+
+Getting the Ca Certs file:
+
+You can use Docker and Alpine to get this!
+
+```
+docker run -v $PWD:/certs alpine /bin/sh -c 'apk --update upgrade && apk add curl ca-certificates && update-ca-certificates && cp /etc/ssl/certs/ca-certificates.crt /certs'
+```
