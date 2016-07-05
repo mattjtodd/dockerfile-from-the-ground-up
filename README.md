@@ -31,6 +31,12 @@ docker run -v $PWD:/certs alpine /bin/sh -c 'apk --update upgrade && apk add cur
 Examine the size of the resultant image by:
 
 ```
+docker images golang-test-service
+```
+
+And the layer history:
+
+```
 docker history golang-test-service
 ```
 
